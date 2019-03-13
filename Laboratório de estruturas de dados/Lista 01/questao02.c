@@ -3,7 +3,6 @@
 void imprime_primeiro(int *vet){
     printf("Valor: %d\n", vet[0]);
 }
-
 int main(int argc, char const *argv[])
 {
     int vet[5] = {1, 2, 3, 4, 5};
