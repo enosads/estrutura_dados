@@ -1,10 +1,6 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <locale.h>
 
 int N = 3; // Dimenssão da matriz
-
-
 int main(int argc, char const *argv[])
 {
     int matriz[3][3];
@@ -27,7 +23,6 @@ int main(int argc, char const *argv[])
     {
         printf("Nao e uma matriz identidade");
     }
-    
 }
 int matriz_identidade(int mat[][N], int n){
     for(int i = 0; i < n; i++ ){

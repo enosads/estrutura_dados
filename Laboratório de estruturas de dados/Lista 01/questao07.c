@@ -1,10 +1,7 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <locale.h>
 
 int main(int argc, char const *argv[])
 {
-    setlocale(LC_ALL, "Portuguese");
     int busca;
     int posicao = 0;
     int contador = 0;
@@ -25,8 +22,5 @@ int main(int argc, char const *argv[])
     }else{
         printf("O numero buscado aparece %d vezes na lista\nA ultima ocorrencia esta na posicao %d do vetor", contador,i);
     }
-    
-    
-
     return 0;
 }

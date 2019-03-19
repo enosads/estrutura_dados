@@ -1,11 +1,8 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <locale.h>
 
 int main(int argc, char const *argv[])
 {
     int busca(int vet[], int n, int x);
-    setlocale(LC_ALL, "Portuguese");
     int vetor[50];
     //ler valor do vetor
     int valorDigitado;
