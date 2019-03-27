@@ -22,10 +22,9 @@ int main(int argc, char const *argv[])
 
 		//pergunta se o usuario quer repetir o teste com outro ano
 		printf("\nTestar outro ano?\n1 para sim\n0 para nao\n:");
-
+		
 		//armazenar a resposta na variavel de controle continuar
 		scanf("%i", &continuar);
 	}
-	
 	return 0;
 }

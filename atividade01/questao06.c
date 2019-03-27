@@ -9,8 +9,6 @@ int main(int argc, char const *argv[])
     scanf("%d", &a);
     printf("Valor de b: ");
     scanf("%d", &b);
-
-
     printf("Esses sao os %d primeiros multiplos de %d ou %d: ", n, a, b);
     while( contador != n){
         if (aux%a == 0 || aux%b == 0) {
@@ -19,6 +17,5 @@ int main(int argc, char const *argv[])
         }
         aux++;
     }
-
     return 0;
 }

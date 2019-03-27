@@ -7,7 +7,6 @@ typedef struct consumidor
     float qtdkwh;
 }Consumidor;
 
-
 int main(int argc, char const *argv[])
 {
     int tipo = -1, aux=0, qtdConsumidores = 0;
@@ -49,9 +48,7 @@ int main(int argc, char const *argv[])
         aux++;
 
     }
-
     //Mostrar dados requeridos e finalizar programa
-
     printf("\n=============== Relatorio ===============\n");
 
     //Menor consumo Residencial
@@ -67,7 +64,6 @@ int main(int argc, char const *argv[])
                 if (consumidores[i].qtdkwh < menorConsumoResidencial->qtdkwh) 
                     menorConsumoResidencial = &consumidores[i];
         }
-        
     }
     if(menorConsumoResidencial != NULL){
         printf("\nMenor consumo residencial\n");
@@ -77,7 +73,6 @@ int main(int argc, char const *argv[])
     {
         printf("\nNao houve consumo residencial\n");
     }
-    
     //maior consumo Comercial
     Consumidor *maiorConsumoComercial = NULL;
 
@@ -90,8 +85,7 @@ int main(int argc, char const *argv[])
             else
                 if (consumidores[i].qtdkwh > maiorConsumoComercial->qtdkwh) 
                     maiorConsumoComercial = &consumidores[i];
-        }
-        
+        }  
     }
     if (maiorConsumoComercial != NULL) {
         printf("\nMaior consumo comercial\n");
@@ -100,8 +94,6 @@ int main(int argc, char const *argv[])
     }else{
         printf("\nNao houve consumo comercial\n");
     }
-    
-
     //Media consumo industrial
     float mediaConsumoIndustrial;
     int qtdIndustrial = 0;
@@ -112,7 +104,6 @@ int main(int argc, char const *argv[])
             qtdIndustrial++;
             mediaConsumoIndustrial+=consumidores[i].qtdkwh;
         }
-        
     }
     mediaConsumoIndustrial /=qtdIndustrial;
     printf("\nMedia de consumo Comercial: %.1fkWh\n\n", mediaConsumoIndustrial);

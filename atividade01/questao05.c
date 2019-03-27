@@ -2,7 +2,6 @@
 
 int main(int argc, char const *argv[])
 {
-
 	char nome[30];
 	float salario, prestacao;
 

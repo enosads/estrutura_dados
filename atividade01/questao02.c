@@ -14,12 +14,8 @@ int main(int argc, char const *argv[])
 
 		scanf("%i", &repetir);
     }
-    
-    
-
     return 0;
 }
-
 int raiz_quadrada(int n){
     int aux = 1, raiz = 0;
     while(n > 0){
@@ -30,6 +26,5 @@ int raiz_quadrada(int n){
     if (n < 0) {
         printf("\nA raiz nao e exata! O resultado do calulo nao esta correto!");
     }
-    
     return raiz;
 }
