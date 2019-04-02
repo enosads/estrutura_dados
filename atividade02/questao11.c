@@ -1,5 +1,5 @@
 #include <stdio.h>
-int votos1, votos2, votos3, brancos, nulos, votantes;
+int votos1, votos2, votos3, brancos, nulos, votantes, vencedor;
 
 void menu(){
     printf("\nO que deseja fazer? \n");
@@ -35,6 +35,13 @@ void resultados(){
     printf("Candidato 3: %d votos\n", votos3);
     printf("Branco: %d votos\n", brancos);
     printf("Nulo: %d votos\n", nulos);
+
+    if (votos1 > votos2 && votos1 > votos3) vencedor = 1;
+    else if (votos2 > votos1 && votos2 > votos3) vencedor = 2;
+    else if (votos3 > votos1 && votos)
+    
+    
+
 }
 void zerarUrna(){
     votos1 = 0; votos2 = 0; votos3 = 0;  brancos = 0; nulos = 0; votantes = 0;

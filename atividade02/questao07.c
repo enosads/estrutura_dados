@@ -11,7 +11,6 @@ int main(){
         s += numerador/i;
         numerador++;
     }
-
     printf("O valor de S e: %f", s);
     return 0;
 }
