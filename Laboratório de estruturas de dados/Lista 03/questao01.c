@@ -2,12 +2,8 @@
 #include <malloc.h>
 #include <stdbool.h>
 
-typedef struct{
-    int info;
-} REGISTRO;
-
 typedef struct elemento{
-    REGISTRO reg;
+    int info;
     struct elemento* prox;
 } ELEMENTO;
 
@@ -19,9 +15,9 @@ void criarLista(LISTA *l){
     l->inicio = NULL;
 }
 
-void inserirElemListaInicio(LISTA *l, REGISTRO reg){
+void inserirElemListaInicio(LISTA *l, int info){
     ELEMENTO* e = malloc(sizeof(ELEMENTO));
-    e->reg = reg;
+    e->info = info;
     e->prox = l->inicio;
     l->inicio = e;
 }
@@ -30,7 +26,7 @@ void imprimirLista(LISTA *l){
     ELEMENTO* end = l->inicio;
     printf("Lista: \" ");
     while(end != NULL){
-        printf("%i ", end->reg.info);
+        printf("%i ", end->info);
         end = end->prox;
     }
     printf("\"\n");
@@ -44,7 +40,7 @@ bool estaVazia(LISTA *l){
 ELEMENTO* buscaSequencial(LISTA *l, int info){
     ELEMENTO* pos = l->inicio;
     while(pos != NULL){
-        if(pos->reg.info == info) return pos;
+        if(pos->info == info) return pos;
         pos = pos->prox;
     }
     return NULL;
@@ -53,7 +49,7 @@ ELEMENTO* buscaSequencial(LISTA *l, int info){
 bool excluirElemLista(LISTA *l, int info){
     ELEMENTO* ant = NULL;
     ELEMENTO* i = l->inicio;
-    while(i != NULL && i->reg.info != info){
+    while(i != NULL && i->info != info){
         ant = i;
         i = i->prox;
     }
@@ -87,18 +83,18 @@ int main(){
     verificarLista(l);
 
     printf("\nInserindo os elementos\n");
-    REGISTRO regs[3];
-    regs[0].info = 7;
-    regs[1].info = 14;
-    regs[2].info = 33;
+    int regs[3];
+    regs[0] = 7;
+    regs[1] = 14;
+    regs[2] = 33;
     inserirElemListaInicio(l, regs[0]);
     inserirElemListaInicio(l, regs[1]);
     inserirElemListaInicio(l, regs[2]);
     verificarLista(l);
 
     printf("\nRemovendo o primeiro elemento\n");
-    if(excluirElemLista(l, regs[2].info)) printf("Elemento %d excluido\n", regs[2].info);
-    else printf("Elemento %d nao excluido\n", regs[2].info);
+    if(excluirElemLista(l, regs[2])) printf("Elemento %d excluido\n", regs[2]);
+    else printf("Elemento %d nao excluido\n", regs[2]);
     verificarLista(l);
 
     printf("\nExcluindo lista\n");
