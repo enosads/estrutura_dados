@@ -46,13 +46,53 @@ void insere_contato (Lista *l, Contato c){
 void lista_contatos(Lista *l){
     printf("\n------------------- LISTAR CONTATOS -------------------\n");
     Elemento *e = l->inicio;
+    int i = 1;
     if(l->qtd > 0){
         while(e != NULL){
-           printf("Contato: %s - Telefone: %s - Aniversario: %s\n", e->info.nome, e->info.telefone, e->info.aniversario);
+            printf("%d - Contato: %s - Telefone: %s - Aniversario: %s\n", i, e->info.nome, e->info.telefone, e->info.aniversario);
             e = e->prox;
+            i++;
         }
     }else{
         printf("Voce ainda nao cadastrou contatos na agenda\n");
+    }
+}
+
+int busca_contato(Lista *l, char busca[30]){
+    printf("Quantidade de contatos: %d\n", l->qtd);
+    Elemento *e = l->inicio;
+    for (int i = 0; i < l->qtd; i++) {
+        if(strcmp(e->info.nome, busca) == 0) return i + 1;
+        e = e->prox;
+    }
+    return NULL;
+}
+
+//Implementação
+void inserirContato(Lista *l){
+    printf("\n------------------- INSERIR CONTATO -------------------\n");
+    Contato contato;
+    char nome[30], telefone[30], aniversario[30];
+    printf("Nome: "); setbuf(stdin, NULL);
+    gets(contato.nome);
+    printf("Telefone: "); setbuf(stdin, NULL);
+    gets(contato.telefone);
+    printf("Data de aniversario: "); setbuf(stdin, NULL);
+    gets(contato.aniversario);
+    insere_contato(l, contato);
+    printf("\nContato inserido com sucesso!\n");
+}
+
+void buscarContatos(Lista *l){
+    printf("\n------------------- BUSCAR CONTATO -------------------\n");
+    char busca[30];
+    printf("Nome do contato: "); setbuf(stdin, NULL);
+    gets(busca);
+    int resposta = busca_contato(l, busca);
+    if (resposta == NULL) {
+        printf("Contato nao encontrado\n");
+    }else{
+        printf("O contato esta na posicao %d da agenda\n", resposta);
     }
 }
 
@@ -67,23 +107,6 @@ void menu(){
     printf("0 - Sair do programa\n: ");
 }
 
-void inserirContato(Lista *l){
-    printf("\n------------------- INSERIR CONTATO -------------------\n");
-    Contato contato;
-    char nome[30], telefone[30], aniversario[30];
-    printf("Nome: "); setbuf(stdin, NULL);
-    gets(nome);
-    printf("Telefone: "); setbuf(stdin, NULL);
-    gets(telefone);
-    printf("Data de aniversario: "); setbuf(stdin, NULL);
-    gets(aniversario);
-    strcpy(contato.nome, nome);
-    strcpy(contato.telefone, telefone);
-    strcpy(contato.aniversario, aniversario);
-    insere_contato(l, contato);
-    printf("\nContato inserido com sucesso!\n");
-}
-
 int main(){
     Lista* l = (Lista*) malloc(sizeof(Lista));
     cria_agenda(l);
@@ -95,6 +118,7 @@ int main(){
             case 0: printf("\nSaindo do programa..."); break;
             case 1: inserirContato(l); break;
             case 2: lista_contatos(l); break;
+            case 3: buscarContatos(l); break;
             default: printf("\nOPCAO INVALIDA!\n"); break;
         }
     }while(resposta != 0);
