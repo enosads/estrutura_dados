@@ -83,6 +83,33 @@ void remove_contato(Lista *l, Elemento *e){
     l->qtd--;
 }
 
+void remove_duplicados(Lista *l){ //Falta Corrigir esta funcao
+    if (l->qtd <= 1) {
+        printf("\nNenhum contato duplicado!\n");
+        return;
+    }
+    Elemento *e = l->inicio;
+    Elemento *prox = e->prox;
+    int qtd = 0;
+    int fim = l->inicio;
+    for (int i = 0; i < fim; i++) {
+        for (int j = 0; i < fim -1; i++) {
+            if (strcmp(e->info.nome, prox->info.nome) == 0){
+                Elemento *aux = prox;
+                remove_contato(l, prox);
+                prox = aux->prox;
+                qtd++;
+            }
+            prox = prox->prox;
+            if (prox == NULL || e == NULL)break;
+        }
+        e = e->prox;
+        if (prox == NULL || e == NULL)break;
+    }
+    printf("\n%d contatos foram removidos\n", qtd);
+}
+
+//Impementacao
 void inserirContato(Lista *l){
     printf("\n------------------- INSERIR CONTATO -------------------\n");
     Contato contato;
@@ -130,8 +157,30 @@ void removerContato(Lista *l){
     if (resposta == 0) printf("O contato nao foi removido\n");
     else{
         remove_contato(l, e);
-        printf("O contato foi excluido\n");
+        printf("O contato foi removido\n");
     }
+}
+
+void editarContato(Lista *l){
+    if(l->qtd == 0){
+        printf("\nVoce ainda nao inseriu contatos na agenda\n");
+        return;
+    }
+    Elemento *e = buscarContato(l);
+    if(e == NULL) return;
+    int resposta = -1;
+    printf("\n------------------- EDITAR CONTATO -------------------\n");
+    remove_contato(l, e);
+    Contato contato;
+    char nome[30], telefone[30], aniversario[30];
+    printf("Nome: "); setbuf(stdin, NULL);
+    gets(contato.nome);
+    printf("Telefone: "); setbuf(stdin, NULL);
+    gets(contato.telefone);
+    printf("Data de aniversario: "); setbuf(stdin, NULL);
+    gets(contato.aniversario);
+    insere_contato(l, contato);
+    printf("\nContato editado com sucesso!\n");
 }
 
 void menu(){
@@ -157,9 +206,9 @@ int main(){
             case 1: inserirContato(l); break;
             case 2: lista_contatos(l); break;
             case 3: buscarContato(l); break;
-            case 4: printf("Ainda nao implementado\n");
+            case 4: editarContato(l); break;
             case 5: removerContato(l); break;
-            case 6: printf("Ainda nao implementado\n");
+            case 6: remove_duplicados(l); break;
             default: printf("\nOPCAO INVALIDA!\n"); break;
         }
     }while(resposta != 0);
