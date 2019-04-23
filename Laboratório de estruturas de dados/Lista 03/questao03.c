@@ -190,7 +190,7 @@ void menu(){
     printf("4 - Editar contato\n");
     printf("5 - Remover contato\n");
     printf("6 - Remover contatos duplicados\n");
-    printf("0 - Sair do programa\n: ");
+    printf("7 - Sair do programa\n: ");
 }
 
 int main(){
@@ -201,15 +201,15 @@ int main(){
         menu();
         scanf("%d", &resposta);
         switch (resposta){
-            case 0: printf("\nSaindo do programa..."); break;
             case 1: inserirContato(l); break;
             case 2: lista_contatos(l); break;
             case 3: buscarContato(l); break;
             case 4: editarContato(l); break;
             case 5: removerContato(l); break;
             case 6: remove_duplicados(l); break;
+            case 7: printf("\nSaindo do programa..."); break;
             default: printf("\nOPCAO INVALIDA!\n"); break;
         }
-    }while(resposta != 0);
+    }while(resposta != 7);
     return 0;
 }
