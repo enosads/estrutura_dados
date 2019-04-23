@@ -49,26 +49,40 @@ void lista_contatos(Lista *l){
     int i = 1;
     if(l->qtd > 0){
         while(e != NULL){
-            printf("%d - Contato: %s - Telefone: %s - Aniversario: %s\n", i, e->info.nome, e->info.telefone, e->info.aniversario);
+            printf("%d - Nome: %s - Telefone: %s - Aniversario: %s\n", i, e->info.nome, e->info.telefone, e->info.aniversario);
             e = e->prox;
             i++;
         }
     }else{
-        printf("Voce ainda nao cadastrou contatos na agenda\n");
+        printf("Voce ainda nao inseriu contatos na agenda\n");
     }
 }
 
-int busca_contato(Lista *l, char busca[30]){
-    printf("Quantidade de contatos: %d\n", l->qtd);
+Elemento* busca_contato(Lista *l, char busca[30], int* n){
     Elemento *e = l->inicio;
     for (int i = 0; i < l->qtd; i++) {
-        if(strcmp(e->info.nome, busca) == 0) return i + 1;
+        if(strcmp(e->info.nome, busca) == 0){
+            *n = i+1;
+            return e;
+        }
         e = e->prox;
     }
     return NULL;
 }
 
-//Implementação
+void remove_contato(Lista *l, Elemento *e){
+    Elemento *ant = NULL;
+    Elemento *atual = l->inicio;
+    while (atual != NULL && atual != e) {
+        ant = atual;
+        atual = atual->prox;
+    }
+    if (ant == NULL) l->inicio = atual->prox;
+    else ant->prox = atual->prox;
+    free(atual);
+    l->qtd--;
+}
+
 void inserirContato(Lista *l){
     printf("\n------------------- INSERIR CONTATO -------------------\n");
     Contato contato;
@@ -83,16 +97,40 @@ void inserirContato(Lista *l){
     printf("\nContato inserido com sucesso!\n");
 }
 
-void buscarContatos(Lista *l){
+Elemento* buscarContato(Lista *l){
     printf("\n------------------- BUSCAR CONTATO -------------------\n");
     char busca[30];
     printf("Nome do contato: "); setbuf(stdin, NULL);
     gets(busca);
-    int resposta = busca_contato(l, busca);
+    int n;
+    Elemento* resposta = busca_contato(l, busca, &n);
     if (resposta == NULL) {
-        printf("Contato nao encontrado\n");
+        printf("\nContato nao encontrado\n");
     }else{
-        printf("O contato esta na posicao %d da agenda\n", resposta);
+        printf("\nO contato esta na posicao %d da agenda\n", n);
+        printf("%d - Nome: %s - Telefone: %s - Aniversario: %s\n", n, resposta->info.nome, resposta->info.telefone, resposta->info.aniversario);
+    }
+    return resposta;
+}
+
+void removerContato(Lista *l){
+    if(l->qtd == 0){
+        printf("\nVoce ainda nao inseriu contatos na agenda\n");
+        return;
+    }
+    Elemento *e = buscarContato(l);
+    if(e == NULL) return;
+    int resposta = -1;
+    printf("\n------------------- REMOVER CONTATO -------------------\n");
+    do{
+        printf("\nDeseja realmente remover o contato? [1 - SIM / 0 - NAO]: ");
+        scanf("%d",&resposta);
+        if(resposta != 1 && resposta != 0) printf("\nOPCAO INVALIDA!\n");
+    }while(resposta != 1 && resposta != 0);
+    if (resposta == 0) printf("O contato nao foi removido\n");
+    else{
+        remove_contato(l, e);
+        printf("O contato foi excluido\n");
     }
 }
 
@@ -118,7 +156,10 @@ int main(){
             case 0: printf("\nSaindo do programa..."); break;
             case 1: inserirContato(l); break;
             case 2: lista_contatos(l); break;
-            case 3: buscarContatos(l); break;
+            case 3: buscarContato(l); break;
+            case 4: printf("Ainda nao implementado\n");
+            case 5: removerContato(l); break;
+            case 6: printf("Ainda nao implementado\n");
             default: printf("\nOPCAO INVALIDA!\n"); break;
         }
     }while(resposta != 0);
