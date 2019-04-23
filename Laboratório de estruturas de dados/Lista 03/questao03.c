@@ -83,7 +83,8 @@ void remove_contato(Lista *l, Elemento *e){
     l->qtd--;
 }
 
-void remove_duplicados(Lista *l){ //Falta Corrigir esta funcao
+void remove_duplicados(Lista *l){
+    printf("\n------------------- REMOVER CONTATOS DUPLICADOS -------------------\n");
     if (l->qtd <= 1) {
         printf("\nNenhum contato duplicado!\n");
         return;
@@ -91,20 +92,18 @@ void remove_duplicados(Lista *l){ //Falta Corrigir esta funcao
     Elemento *e = l->inicio;
     Elemento *prox = e->prox;
     int qtd = 0;
-    int fim = l->inicio;
-    for (int i = 0; i < fim; i++) {
-        for (int j = 0; i < fim -1; i++) {
-            if (strcmp(e->info.nome, prox->info.nome) == 0){
+    while (e != NULL) {
+        while (prox != NULL) {
+            if (strcmp(e->info.nome, prox->info.nome) == 0 && strcmp(e->info.telefone, prox->info.telefone) == 0 && strcmp(e->info.aniversario, prox->info.aniversario) == 0){
                 Elemento *aux = prox;
                 remove_contato(l, prox);
                 prox = aux->prox;
                 qtd++;
-            }
-            prox = prox->prox;
-            if (prox == NULL || e == NULL)break;
+            }else prox = prox->prox;
         }
         e = e->prox;
-        if (prox == NULL || e == NULL)break;
+        if (e->prox == NULL) break;
+        prox = e->prox;
     }
     printf("\n%d contatos foram removidos\n", qtd);
 }
