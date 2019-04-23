@@ -28,10 +28,8 @@ void insere_contato (Lista *l, Contato c){
     Elemento* atual = l->inicio;
     Elemento* e = (Elemento*) malloc(sizeof(Elemento));
     e->info = c;
-    for(int i = 0; i < l->qtd - 1; i++){
-      if (strcmp(atual->prox->info.nome, atual->info.nome) <= 0) {
-        break;
-      }
+    for(int i = -1; i < l->qtd -1; i++){
+      if (strcmp(e->info.nome, atual->info.nome) <= 0) break;
       ant = atual;
       atual = atual->prox;
     }
