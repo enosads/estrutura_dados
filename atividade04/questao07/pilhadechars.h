@@ -10,12 +10,9 @@ typedef struct{
 	char itens[MAX];
 } Pilha;
 
-Pilha criapilha(){
-	Pilha pilha;
-	pilha->inicio = 
-}
+Pilha criapilha();
 void empilha(Pilha *p, char e);
-int desempilha(Pilha *p);
+char desempilha(Pilha *p);
 bool pilhavazia(Pilha *p);
 bool pilhacheia(Pilha *p);
 void imprimirpilha(Pilha *p);
