@@ -73,11 +73,11 @@ void verificar_lista(Elemento *l){
 
 int main (){
   Elemento *l = new Elemento;
-  criar_lista(l);
   cout << "Lista criada!\n";
+  criar_lista(l);
   verificar_lista(l);
 
-  cout << "\ninserindo os elementos\n";
+  cout << "\nInserindo os elementos\n";
   inserir_inicio(l, 7);
   inserir_inicio(l, 14);
   inserir_inicio(l, 33);
