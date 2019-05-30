@@ -1,3 +1,4 @@
+
 #include <iostream>
 
 using namespace std;
@@ -26,17 +27,7 @@ void inserir(No *&raiz, int dado){
     inserir(raiz->dir, dado);
 }
 
-void espelhar(No *raiz){
-  if (raiz != NULL) {
-    espelhar(raiz->esq);
-    espelhar(raiz->dir);
-    No *aux = raiz->esq;
-    raiz->esq = raiz->dir;
-    raiz->dir = aux;
-  }
-}
-
-void imprimir_pre(No *raiz){
+void imprimir_arvore(No *raiz){
     if (raiz != NULL) {
       cout << raiz->dado << " ";
       imprimir_arvore(raiz->esq);
@@ -44,20 +35,35 @@ void imprimir_pre(No *raiz){
     }
 }
 
+No* pai(No *raiz, int dado){
+  if (raiz == NULL || raiz->esq == NULL && raiz->dir == NULL)
+    return NULL;
+  else if((raiz->esq != NULL && raiz->esq->dado == dado) ||
+  (raiz->dir != NULL && raiz->dir->dado == dado))
+    return raiz;
+  else if(dado < raiz->dado)
+    return pai(raiz->esq, dado);
+  else
+    return pai(raiz->dir, dado);
+}
+
 int main(int argc, char const *argv[]) {
+
   No* raiz = criar_arvore();
-  inserir(raiz, 3);
-  inserir(raiz, 7);
+  inserir(raiz, 4);
   inserir(raiz, 9);
   inserir(raiz, 2);
-  inserir(raiz, 8);
-  inserir(raiz, 5);
-
-  cout << "Antes de espelhar: ";
-  imprimir_arvore(raiz);
-  cout <<"\nDepois de espelhar: ";
-  espelhar(raiz);
+  inserir(raiz, 1);
 
   imprimir_arvore(raiz);
+
+  No* noPai = new No;
+  noPai = NULL;
+  int busca = 9; // altere o valor pra testar outros pais
+  noPai = pai(raiz,  busca);
+  if (noPai != NULL)
+    cout <<"\nO pai do "<< busca <<" é o " << noPai->dado;
+  else
+    cout << "\nO dado buscado não está na árvore ou é o nó raiz";
   return 0;
 }
