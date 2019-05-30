@@ -49,18 +49,19 @@ int main(int argc, char const *argv[]) {
   //Altere os dados inseridos nas duas arvores para verificar se são iguais
   No* a1 = criar_arvore();
   inserir(a1, 4);
-  inserir(a1, 4);
+  inserir(a1, 5);
   inserir(a1, 2);
-
+  cout <<"Arvore 1: ";
+  imprimir_arvore(a1);
 
   No* a2 = criar_arvore();
   inserir(a2, 4);
-  inserir(a2, 4);
+  inserir(a2, 5);
   inserir(a2, 2);
-  inserir(a2, 10);
-
+  cout <<"\nArvore 2: ";
+  imprimir_arvore(a2);
 
   bool igual = saoIguais(a1, a2);
-  cout << "As arvores são iguais? " << igual;
+  cout << "\nAs arvores são iguais? " << igual;
   return 0;
 }
