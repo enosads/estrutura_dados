@@ -1,0 +1,148 @@
+/home/enos/Documentos/GitHub/estrutura_dados/pilha.cpp: In function ‘int main()’:
+/home/enos/Documentos/GitHub/estrutura_dados/pilha.cpp:56:7: error: no match for ‘operator>>’ (operand types are ‘std::istream {aka std::basic_istream<char>}’ and ‘std::__cxx11::string {aka std::__cxx11::basic_string<char>}’)
+   cin >> espiar_topo(pilha);
+   ~~~~^~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/7/string:52:0,
+                 from /home/enos/Documentos/GitHub/estrutura_dados/pilha.cpp:1:
+/usr/include/c++/7/bits/basic_string.h:6271:5: note: candidate: std::basic_istream<_CharT, _Traits>& std::operator>>(std::basic_istream<_CharT, _Traits>&, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] <near match>
+     operator>>(basic_istream<char>& __is, basic_string<char>& __str);
+     ^~~~~~~~
+/usr/include/c++/7/bits/basic_string.h:6271:5: note:   conversion of argument 2 would be ill-formed:
+/home/enos/Documentos/GitHub/estrutura_dados/pilha.cpp:56:21: error: cannot bind non-const lvalue reference of type ‘std::__cxx11::basic_string<char>&’ to an rvalue of type ‘std::__cxx11::string {aka std::__cxx11::basic_string<char>}’
+   cin >> espiar_topo(pilha);
+          ~~~~~~~~~~~^~~~~~~
+In file included from /usr/include/c++/7/iostream:40:0,
+                 from /home/enos/Documentos/GitHub/estrutura_dados/pilha.cpp:2:
+/usr/include/c++/7/istream:120:7: note: candidate: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(std::basic_istream<_CharT, _Traits>::__istream_type& (*)(std::basic_istream<_CharT, _Traits>::__istream_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+       operator>>(__istream_type& (*__pf)(__istream_type&))
+       ^~~~~~~~
+/usr/include/c++/7/istream:120:7: note:   no known conversion for argument 1 from ‘std::__cxx11::string {aka std::__cxx11::basic_string<char>}’ to ‘std::basic_istream<char>::__istream_type& (*)(std::basic_istream<char>::__istream_type&) {aka std::basic_istream<char>& (*)(std::basic_istream<char>&)}’
+/usr/include/c++/7/istream:124:7: note: candidate: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(std::basic_istream<_CharT, _Traits>::__ios_type& (*)(std::basic_istream<_CharT, _Traits>::__ios_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>; std::basic_istream<_CharT, _Traits>::__ios_type = std::basic_ios<char>]
+       operator>>(__ios_type& (*__pf)(__ios_type&))
+       ^~~~~~~~
+/usr/include/c++/7/istream:124:7: note:   no known conversion for argument 1 from ‘std::__cxx11::string {aka std::__cxx11::basic_string<char>}’ to ‘std::basic_istream<char>::__ios_type& (*)(std::basic_istream<char>::__ios_type&) {aka std::basic_ios<char>& (*)(std::basic_ios<char>&)}’
+/usr/include/c++/7/istream:131:7: note: candidate: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(std::ios_base& (*)(std::ios_base&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+       operator>>(ios_base& (*__pf)(ios_base&))
+       ^~~~~~~~
+/usr/include/c++/7/istream:131:7: note:   no known conversion for argument 1 from ‘std::__cxx11::string {aka std::__cxx11::basic_string<char>}’ to ‘std::ios_base& (*)(std::ios_base&)’
+/usr/include/c++/7/istream:168:7: note: candidate: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(bool&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+       operator>>(bool& __n)
+       ^~~~~~~~
+/usr/include/c++/7/istream:168:7: note:   no known conversion for argument 1 from ‘std::__cxx11::string {aka std::__cxx11::basic_string<char>}’ to ‘bool&’
+/usr/include/c++/7/istream:172:7: note: candidate: std::basic_istream<_CharT, _Traits>& std::basic_istream<_CharT, _Traits>::operator>>(short int&) [with _CharT = char; _Traits = std::char_traits<char>]
+       operator>>(short& __n);
+       ^~~~~~~~
+/usr/include/c++/7/istream:172:7: note:   no known conversion for argument 1 from ‘std::__cxx11::string {aka std::__cxx11::basic_string<char>}’ to ‘short int&’
+/usr/include/c++/7/istream:175:7: note: candidate: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(short unsigned int&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+       operator>>(unsigned short& __n)
+       ^~~~~~~~
+/usr/include/c++/7/istream:175:7: note:   no known conversion for argument 1 from ‘std::__cxx11::string {aka std::__cxx11::basic_string<char>}’ to ‘short unsigned int&’
+/usr/include/c++/7/istream:179:7: note: candidate: std::basic_istream<_CharT, _Traits>& std::basic_istream<_CharT, _Traits>::operator>>(int&) [with _CharT = char; _Traits = std::char_traits<char>]
+       operator>>(int& __n);
+       ^~~~~~~~
+/usr/include/c++/7/istream:179:7: note:   no known conversion for argument 1 from ‘std::__cxx11::string {aka std::__cxx11::basic_string<char>}’ to ‘int&’
+/usr/include/c++/7/istream:182:7: note: candidate: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(unsigned int&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+       operator>>(unsigned int& __n)
+       ^~~~~~~~
+/usr/include/c++/7/istream:182:7: note:   no known conversion for argument 1 from ‘std::__cxx11::string {aka std::__cxx11::basic_string<char>}’ to ‘unsigned int&’
+/usr/include/c++/7/istream:186:7: note: candidate: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(long int&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+       operator>>(long& __n)
+       ^~~~~~~~
+/usr/include/c++/7/istream:186:7: note:   no known conversion for argument 1 from ‘std::__cxx11::string {aka std::__cxx11::basic_string<char>}’ to ‘long int&’
+/usr/include/c++/7/istream:190:7: note: candidate: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(long unsigned int&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+       operator>>(unsigned long& __n)
+       ^~~~~~~~
+/usr/include/c++/7/istream:190:7: note:   no known conversion for argument 1 from ‘std::__cxx11::string {aka std::__cxx11::basic_string<char>}’ to ‘long unsigned int&’
+/usr/include/c++/7/istream:195:7: note: candidate: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(long long int&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+       operator>>(long long& __n)
+       ^~~~~~~~
+/usr/include/c++/7/istream:195:7: note:   no known conversion for argument 1 from ‘std::__cxx11::string {aka std::__cxx11::basic_string<char>}’ to ‘long long int&’
+/usr/include/c++/7/istream:199:7: note: candidate: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(long long unsigned int&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+       operator>>(unsigned long long& __n)
+       ^~~~~~~~
+/usr/include/c++/7/istream:199:7: note:   no known conversion for argument 1 from ‘std::__cxx11::string {aka std::__cxx11::basic_string<char>}’ to ‘long long unsigned int&’
+/usr/include/c++/7/istream:214:7: note: candidate: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(float&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+       operator>>(float& __f)
+       ^~~~~~~~
+/usr/include/c++/7/istream:214:7: note:   no known conversion for argument 1 from ‘std::__cxx11::string {aka std::__cxx11::basic_string<char>}’ to ‘float&’
+/usr/include/c++/7/istream:218:7: note: candidate: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(double&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+       operator>>(double& __f)
+       ^~~~~~~~
+/usr/include/c++/7/istream:218:7: note:   no known conversion for argument 1 from ‘std::__cxx11::string {aka std::__cxx11::basic_string<char>}’ to ‘double&’
+/usr/include/c++/7/istream:222:7: note: candidate: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(long double&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+       operator>>(long double& __f)
+       ^~~~~~~~
+/usr/include/c++/7/istream:222:7: note:   no known conversion for argument 1 from ‘std::__cxx11::string {aka std::__cxx11::basic_string<char>}’ to ‘long double&’
+/usr/include/c++/7/istream:235:7: note: candidate: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(void*&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+       operator>>(void*& __p)
+       ^~~~~~~~
+/usr/include/c++/7/istream:235:7: note:   no known conversion for argument 1 from ‘std::__cxx11::string {aka std::__cxx11::basic_string<char>}’ to ‘void*&’
+/usr/include/c++/7/istream:259:7: note: candidate: std::basic_istream<_CharT, _Traits>& std::basic_istream<_CharT, _Traits>::operator>>(std::basic_istream<_CharT, _Traits>::__streambuf_type*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__streambuf_type = std::basic_streambuf<char>]
+       operator>>(__streambuf_type* __sb);
+       ^~~~~~~~
+/usr/include/c++/7/istream:259:7: note:   no known conversion for argument 1 from ‘std::__cxx11::string {aka std::__cxx11::basic_string<char>}’ to ‘std::basic_istream<char>::__streambuf_type* {aka std::basic_streambuf<char>*}’
+In file included from /usr/include/c++/7/istream:991:0,
+                 from /usr/include/c++/7/iostream:40,
+                 from /home/enos/Documentos/GitHub/estrutura_dados/pilha.cpp:2:
+/usr/include/c++/7/bits/istream.tcc:963:5: note: candidate: template<class _CharT2, class _Traits2> std::basic_istream<_CharT, _Traits>& std::operator>>(std::basic_istream<_CharT, _Traits>&, _CharT2*)
+     operator>>(basic_istream<_CharT, _Traits>& __in, _CharT* __s)
+     ^~~~~~~~
+/usr/include/c++/7/bits/istream.tcc:963:5: note:   template argument deduction/substitution failed:
+/home/enos/Documentos/GitHub/estrutura_dados/pilha.cpp:56:27: note:   mismatched types ‘_CharT2*’ and ‘std::__cxx11::basic_string<char>’
+   cin >> espiar_topo(pilha);
+                           ^
+In file included from /usr/include/c++/7/istream:991:0,
+                 from /usr/include/c++/7/iostream:40,
+                 from /home/enos/Documentos/GitHub/estrutura_dados/pilha.cpp:2:
+/usr/include/c++/7/bits/istream.tcc:931:5: note: candidate: template<class _CharT, class _Traits> std::basic_istream<_CharT, _Traits>& std::operator>>(std::basic_istream<_CharT, _Traits>&, _CharT&)
+     operator>>(basic_istream<_CharT, _Traits>& __in, _CharT& __c)
+     ^~~~~~~~
+/usr/include/c++/7/bits/istream.tcc:931:5: note:   template argument deduction/substitution failed:
+/home/enos/Documentos/GitHub/estrutura_dados/pilha.cpp:56:27: note:   deduced conflicting types for parameter ‘_CharT’ (‘char’ and ‘std::__cxx11::string {aka std::__cxx11::basic_string<char>}’)
+   cin >> espiar_topo(pilha);
+                           ^
+In file included from /usr/include/c++/7/iostream:40:0,
+                 from /home/enos/Documentos/GitHub/estrutura_dados/pilha.cpp:2:
+/usr/include/c++/7/istream:756:5: note: candidate: template<class _Traits> std::basic_istream<char, _Traits>& std::operator>>(std::basic_istream<char, _Traits>&, unsigned char&)
+     operator>>(basic_istream<char, _Traits>& __in, unsigned char& __c)
+     ^~~~~~~~
+/usr/include/c++/7/istream:756:5: note:   template argument deduction/substitution failed:
+/home/enos/Documentos/GitHub/estrutura_dados/pilha.cpp:56:21: note:   cannot convert ‘espiar_topo(Pilha*)()’ (type ‘std::__cxx11::string {aka std::__cxx11::basic_string<char>}’) to type ‘unsigned char&’
+   cin >> espiar_topo(pilha);
+          ~~~~~~~~~~~^~~~~~~
+In file included from /usr/include/c++/7/iostream:40:0,
+                 from /home/enos/Documentos/GitHub/estrutura_dados/pilha.cpp:2:
+/usr/include/c++/7/istream:761:5: note: candidate: template<class _Traits> std::basic_istream<char, _Traits>& std::operator>>(std::basic_istream<char, _Traits>&, signed char&)
+     operator>>(basic_istream<char, _Traits>& __in, signed char& __c)
+     ^~~~~~~~
+/usr/include/c++/7/istream:761:5: note:   template argument deduction/substitution failed:
+/home/enos/Documentos/GitHub/estrutura_dados/pilha.cpp:56:21: note:   cannot convert ‘espiar_topo(Pilha*)()’ (type ‘std::__cxx11::string {aka std::__cxx11::basic_string<char>}’) to type ‘signed char&’
+   cin >> espiar_topo(pilha);
+          ~~~~~~~~~~~^~~~~~~
+In file included from /usr/include/c++/7/iostream:40:0,
+                 from /home/enos/Documentos/GitHub/estrutura_dados/pilha.cpp:2:
+/usr/include/c++/7/istream:803:5: note: candidate: template<class _Traits> std::basic_istream<char, _Traits>& std::operator>>(std::basic_istream<char, _Traits>&, unsigned char*)
+     operator>>(basic_istream<char, _Traits>& __in, unsigned char* __s)
+     ^~~~~~~~
+/usr/include/c++/7/istream:803:5: note:   template argument deduction/substitution failed:
+/home/enos/Documentos/GitHub/estrutura_dados/pilha.cpp:56:21: note:   cannot convert ‘espiar_topo(Pilha*)()’ (type ‘std::__cxx11::string {aka std::__cxx11::basic_string<char>}’) to type ‘unsigned char*’
+   cin >> espiar_topo(pilha);
+          ~~~~~~~~~~~^~~~~~~
+In file included from /usr/include/c++/7/iostream:40:0,
+                 from /home/enos/Documentos/GitHub/estrutura_dados/pilha.cpp:2:
+/usr/include/c++/7/istream:808:5: note: candidate: template<class _Traits> std::basic_istream<char, _Traits>& std::operator>>(std::basic_istream<char, _Traits>&, signed char*)
+     operator>>(basic_istream<char, _Traits>& __in, signed char* __s)
+     ^~~~~~~~
+/usr/include/c++/7/istream:808:5: note:   template argument deduction/substitution failed:
+/home/enos/Documentos/GitHub/estrutura_dados/pilha.cpp:56:21: note:   cannot convert ‘espiar_topo(Pilha*)()’ (type ‘std::__cxx11::string {aka std::__cxx11::basic_string<char>}’) to type ‘signed char*’
+   cin >> espiar_topo(pilha);
+          ~~~~~~~~~~~^~~~~~~
+In file included from /usr/include/c++/7/iostream:40:0,
+                 from /home/enos/Documentos/GitHub/estrutura_dados/pilha.cpp:2:
+/usr/include/c++/7/istream:980:5: note: candidate: template<class _Istream, class _Tp> typename std::enable_if<std::__and_<std::__not_<std::is_lvalue_reference<_Tp> >, std::__is_convertible_to_basic_istream<_Istream>, std::__is_extractable<typename std::__is_convertible_to_basic_istream<_Tp>::__istream_type, _Tp&&, void> >::value, typename std::__is_convertible_to_basic_istream<_Tp>::__istream_type>::type std::operator>>(_Istream&&, _Tp&&)
+     operator>>(_Istream&& __is, _Tp&& __x)
+     ^~~~~~~~
+/usr/include/c++/7/istream:980:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/7/istream: In substitution of ‘template<class _Istream, class _Tp> typename std::enable_if<std::__and_<std::__not_<std::is_lvalue_reference<_Tp> >, std::__is_convertible_to_basic_istream<_Istream>, std::__is_extractable<typename std::__is_convertible_to_basic_istream<_Tp>::__istream_type, _Tp&&, void> >::value, typename std::__is_convertible_to_basic_istream<_Tp>::__istream_type>::type std::operator>>(_Istream&&, _Tp&&) [with _Istream = std::basic_istream<char>&; _Tp = std::__cxx11::basic_string<char>]’:
+/home/enos/Documentos/GitHub/estrutura_dados/pilha.cpp:56:27:   required from here
+/usr/include/c++/7/istream:980:5: error: no type named ‘type’ in ‘struct std::enable_if<false, std::basic_istream<char>&>’

@@ -1,0 +1,47 @@
+In file included from /home/enos/Documentos/GitHub/estrutura_dados/Laboratório de estruturas de dados/projeto/pilha.cpp:3:0:
+/home/enos/Documentos/GitHub/estrutura_dados/Laboratório de estruturas de dados/projeto/pilha.h:1:1: error: ‘Pilha’ does not name a type
+ Pilha* criar_pilha();
+ ^~~~~
+/home/enos/Documentos/GitHub/estrutura_dados/Laboratório de estruturas de dados/projeto/pilha.h:2:16: error: ‘Pilha’ was not declared in this scope
+ bool estaVazio(Pilha *pilha);
+                ^~~~~
+/home/enos/Documentos/GitHub/estrutura_dados/Laboratório de estruturas de dados/projeto/pilha.h:2:23: error: ‘pilha’ was not declared in this scope
+ bool estaVazio(Pilha *pilha);
+                       ^~~~~
+/home/enos/Documentos/GitHub/estrutura_dados/Laboratório de estruturas de dados/projeto/pilha.h:3:1: error: ‘string’ does not name a type; did you mean ‘stdin’?
+ string espiar_topo(Pilha *pilha);
+ ^~~~~~
+ stdin
+/home/enos/Documentos/GitHub/estrutura_dados/Laboratório de estruturas de dados/projeto/pilha.h:4:1: error: ‘string’ does not name a type; did you mean ‘stdin’?
+ string desempilhar(Pilha *&pilha);
+ ^~~~~~
+ stdin
+/home/enos/Documentos/GitHub/estrutura_dados/Laboratório de estruturas de dados/projeto/pilha.h:5:15: error: variable or field ‘empilhar’ declared void
+ void empilhar(Pilha *&pilha, string dado);
+               ^~~~~
+/home/enos/Documentos/GitHub/estrutura_dados/Laboratório de estruturas de dados/projeto/pilha.h:5:15: error: ‘Pilha’ was not declared in this scope
+/home/enos/Documentos/GitHub/estrutura_dados/Laboratório de estruturas de dados/projeto/pilha.h:5:23: error: ‘pilha’ was not declared in this scope
+ void empilhar(Pilha *&pilha, string dado);
+                       ^~~~~
+/home/enos/Documentos/GitHub/estrutura_dados/Laboratório de estruturas de dados/projeto/pilha.h:5:30: error: ‘string’ was not declared in this scope
+ void empilhar(Pilha *&pilha, string dado);
+                              ^~~~~~
+/home/enos/Documentos/GitHub/estrutura_dados/Laboratório de estruturas de dados/projeto/pilha.h:5:30: note: suggested alternatives:
+In file included from /usr/include/c++/7/string:39:0,
+                 from /home/enos/Documentos/GitHub/estrutura_dados/Laboratório de estruturas de dados/projeto/pilha.cpp:1:
+/usr/include/c++/7/bits/stringfwd.h:74:33: note:   ‘std::__cxx11::string’
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7/bits/stringfwd.h:74:33: note:   ‘std::__cxx11::string’
+/home/enos/Documentos/GitHub/estrutura_dados/Laboratório de estruturas de dados/projeto/pilha.cpp: In function ‘bool estaVazio(Pilha*)’:
+/home/enos/Documentos/GitHub/estrutura_dados/Laboratório de estruturas de dados/projeto/pilha.cpp:23:28: error: ‘bool estaVazio(Pilha*)’ redeclared as different kind of symbol
+ bool estaVazio(Pilha *pilha){
+                            ^
+In file included from /home/enos/Documentos/GitHub/estrutura_dados/Laboratório de estruturas de dados/projeto/pilha.cpp:3:0:
+/home/enos/Documentos/GitHub/estrutura_dados/Laboratório de estruturas de dados/projeto/pilha.h:2:6: note: previous declaration ‘bool estaVazio’
+ bool estaVazio(Pilha *pilha);
+      ^~~~~~~~~
+/home/enos/Documentos/GitHub/estrutura_dados/Laboratório de estruturas de dados/projeto/pilha.cpp: In function ‘std::__cxx11::string desempilhar(Pilha*&)’:
+/home/enos/Documentos/GitHub/estrutura_dados/Laboratório de estruturas de dados/projeto/pilha.cpp:35:22: error: ‘estaVazio’ cannot be used as a function
+   if(!estaVazio(pilha)) {
+                      ^

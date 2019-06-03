@@ -35,7 +35,7 @@ void imprimir_arvore(No *raiz){
     }
 }
 
-bool saoIguais(No *a1, No *a2){
+bool sao_iguais(No *a1, No *a2){
   if(a1 == NULL && a2 == NULL)
     return true;
   else if (a1 != NULL && a2 != NULL && a1->dado == a2->dado)
