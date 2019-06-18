@@ -51,6 +51,8 @@ private slots:
 
     void on_btn_atender_juridico_clicked();
 
+    void on_btn_listar_clicked();
+
 private:
     Ui::MainWindow *ui;
     TelaInserir* tela_inserir;

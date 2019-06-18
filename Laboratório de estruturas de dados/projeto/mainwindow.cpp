@@ -213,6 +213,48 @@ void MainWindow::on_btn_atender_juridico_clicked()
         msg = "O processo número "+ QString::number(dp->num) + " foi atendido.\n\nDados do processo:\n\nNúmero: "+ QString::number(dp->num)+
                 "\nQuem moveu: "+dp->movedor +"\nPessoa: "+dp->tipo_pessoa+"\nData: "+dp->data;
         QMessageBox::information(this, "Atendimento de processo", msg);
-        update_list_fisicos();
+        update_list_juridicos();
     }
+}
+
+void MainWindow::on_btn_listar_clicked()
+{
+    QString msg = "Processos FÍSICOS:\n";
+    Processo* perc = fisicos->inicio;
+    if(perc == NULL)
+        msg.append("Nenhum processo\n");
+    else {
+        while(perc != NULL){
+            QString pro = "Número: "+ QString::number(perc->dados->num) +
+                    " | Movedor: "+ perc->dados->movedor + " | Data: "+ perc->dados->data +"\n";
+            msg.append(pro);
+            perc = perc->prox;
+        }
+    }
+    msg.append("\nProcessos JURÍDICOS:\n");
+    perc = juridicos->inicio;
+    if(perc == NULL)
+        msg.append("Nenhum processo\n");
+    else {
+        while(perc != NULL){
+            QString pro = "Número: "+ QString::number(perc->dados->num) +
+                    " | Movedor: "+ perc->dados->movedor + " | Data: "+ perc->dados->data +"\n";
+            msg.append(pro);
+            perc = perc->prox;
+        }
+    }
+    msg.append("\nProcessos NÃO CLASSIFICADOS:\n");
+    perc = naoClassificados->inicio;
+    if(perc == NULL)
+        msg.append("Nenhum processo\n");
+    else {
+        while(perc != NULL){
+            QString pro = "Número: "+ QString::number(perc->dados->num) +
+                    " | Movedor: "+ perc->dados->movedor + " | Data: "+ perc->dados->data +"\n";
+            msg.append(pro);
+            perc = perc->prox;
+        }
+    }
+
+    QMessageBox::about(this, "Lista de processos", msg);
 }
